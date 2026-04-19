@@ -1,5 +1,29 @@
-@charset "UTF-8";
+/*  ===================================
+    REFERENCES USED:
+    https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/line-height
+    https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/overflow
+    https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Selectors
+    https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/gradient/repeating-linear-gradient
+    https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/gradient/radial-gradient
+    https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/text-shadow
+    https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/filter-function/drop-shadow
+    https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/transform-origin
+    https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/transform-function/rotateY
+    https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions
+    =================================== 
+*/
 
+@charset "UTF-8";
+/*
+ Google Fonts: Playfair Display & Roboto
+    https://fonts.google.com/
+ Playfair Display by Claus Eggers Sørensen
+    https://fonts.google.com/specimen/Playfair+Display
+ Roboto by Christian Robertson
+    https://fonts.google.com/specimen/Roboto
+ Licensed under the Open Font License (OFL)
+    https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL
+ */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500;700&display=swap');
 
 @font-face {
@@ -388,12 +412,14 @@ header {
   min-height: auto;
   place-items: center;
   padding: 2rem 1rem;
-  background: linear-gradient(135deg, var(--color-background) 0%, #fff9e6 100%);
-  background-image: 
+  background-color: var(--color-background);
+  background-image:
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='72' viewBox='0 0 36 72'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23c41e3a' fill-opacity='0.15'%3E%3Cpath d='M2 6h12L8 18 2 6zm18 36h12l-6 12-6-12z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='72' viewBox='0 0 36 72'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23165b33' fill-opacity='0.15'%3E%3Cpath d='M2 6h12L8 18 2 6zm18 36h12l-6 12-6-12z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  background-repeat: repeat-x;
-  background-position: 0 -38px, 17px -40px;
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='72' viewBox='0 0 36 72'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23165b33' fill-opacity='0.15'%3E%3Cpath d='M2 6h12L8 18 2 6zm18 36h12l-6 12-6-12z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
+    linear-gradient(135deg, var(--color-background) 0%, #fff9e6 100%);
+  background-repeat: repeat-x, repeat-x, no-repeat;
+  background-position: 0 -38px, 17px -40px, 0 0;
+  background-size: auto, auto, cover;
   color: var(--color-primary);
   text-align: center;
   position: relative;
@@ -447,7 +473,8 @@ header h1:active {
 header h2 {
   max-width: 30ch;
   color: var(--color-primary);
-  margin-top: 1rem;
+  margin: 1rem auto 0;
+  text-align: center;
   font-size: clamp(1rem, 3vw, 1.5rem);
 }
 
@@ -455,10 +482,12 @@ nav ul {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 1.5rem 0 0 0;
-  padding: 0;
+  margin: 0;
+  padding: 1rem 1rem 1.5rem;
   list-style: none;
   gap: 0.5rem;
+  background-color: var(--color-background);
+  border-bottom: 1px solid rgba(196, 30, 58, 0.15);
 }
 
 nav ul a {
@@ -521,7 +550,9 @@ nav ul li {
   margin: 0;
 }
 
-/* TABLET & DESKTOP HEADER */
+/* =================================== 
+   TABLET & DESKTOP HEADER 
+   =================================== */
 @media (min-width: 768px) {
   header {
     --logomark-height: 3em;
@@ -782,6 +813,7 @@ nav ul li {
 #files h3 {
   height: 0;
   opacity: 0;
+  margin: 0;
 }
 
 #files .container {
@@ -1163,10 +1195,13 @@ nav ul li {
   --logomark-padding: 0;
   position: relative;
   padding: 2.5rem 1rem 1rem;
-  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-alt));
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='72' viewBox='0 0 36 72'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23fffef0' fill-opacity='0.15'%3E%3Cpath d='M2 6h12L8 18 2 6zm18 36h12l-6 12-6-12z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  background-repeat: repeat-x;
-  background-position: center -34px;
+  background-color: var(--color-primary);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='72' viewBox='0 0 36 72'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23fffef0' fill-opacity='0.15'%3E%3Cpath d='M2 6h12L8 18 2 6zm18 36h12l-6 12-6-12z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
+    linear-gradient(135deg, var(--color-primary), var(--color-primary-alt));
+  background-repeat: repeat-x, no-repeat;
+  background-position: center -34px, 0 0;
+  background-size: auto, cover;
   color: var(--color-light);
   box-shadow: 0 -4px 12px rgba(196, 30, 58, 0.15);
 }
@@ -1189,11 +1224,14 @@ nav ul li {
   border-radius: 4px;
 }
 
+.page-footer p {
+  text-align: center;
+}
+
 .page-footer p:first-child {
   margin-top: 2.5rem;
   font-weight: 700;
   letter-spacing: 0.04em;
-  text-align: center;
   font-size: clamp(0.95rem, 2vw, 1.1rem);
   font-family: var(--font-family-accent);
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
@@ -1205,6 +1243,17 @@ nav ul li {
 }
 
 .page-footer p a:hover {
+  color: var(--color-accent-gold);
+}
+
+.page-footer p strong {
+  color: var(--color-accent-gold);
+  font-family: inherit;
+  font-weight: 700;
+}
+
+.page-footer p a:focus {
+  outline-color: var(--color-accent-gold);
   color: var(--color-accent-gold);
 }
 
